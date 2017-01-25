@@ -1,0 +1,39 @@
+.comments-list{
+  padding: 0px;
+  list-style-type: none;
+  .comment-data{
+    border: 1px solid #D1D1B9;
+    margin-bottom: 3px;
+    .comment-details{
+      display: flex;
+      justify-content: flex-start;
+      .comment-user-info{
+        flex: 15%;
+      }
+      .comment-body{
+        flex: 85%;
+      }
+    }
+  }
+}
+.new-comment{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  .new-comment-image{
+    flex: 15%;
+  }
+  .new-comment-text{
+    flex: 85%;
+    input{
+      width: 100%;
+    }
+    &::after {
+      content: '';
+      width: 100%;
+    }
+  }
+  .new-comment-setting{
+    margin-left: auto;
+  }
+}

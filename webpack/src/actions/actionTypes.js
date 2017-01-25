@@ -1,0 +1,5 @@
+export const AUTHENTICATION = 'AUTHENTICATION';
+export const LOGOUT = 'LOGOUT';
+
+export const AJAX_POSTS_LIST = 'AJAX_POSTS_LIST';
+export const AJAX_POST_DETAILS = 'AJAX_POST_DETAILS';
