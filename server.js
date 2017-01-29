@@ -20,6 +20,7 @@ require('./server/mongo/mongooseSetup').initialize();
 // initializing our middleware
 app.use(bodyParser.json());
 app.use(passport.initialize());
+app.use(cookieParser(config.cookieSecret));
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());

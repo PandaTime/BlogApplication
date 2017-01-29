@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PostListItem from './components/post-list-item';
-import {getListOfPosts} from '../../actions/postsActions';
+import {getListOfPosts, pageChangeAction} from '../../actions/postsActions';
 
 
 class PostList extends React.Component {
@@ -12,7 +12,8 @@ class PostList extends React.Component {
         // changing background image
         document.getElementsByTagName('body')[0].className='forum-body-list';
         // getting posts for first page(argument in function - page number)
-        getListOfPosts(1);
+        this.props.pageChangeAction(1);
+        getListOfPosts(this.props.page);
     }
     render() {
         var list = this.props.postList.map((el, index)=>{
@@ -30,8 +31,9 @@ class PostList extends React.Component {
 
 function mapStateToProps(state, ownProps){
     return {
-        postList: state.postListReducer
+        postList: state.postListReducer,
+        page: state.postPageReducer
     };
 }
 
-export default connect(mapStateToProps, {})(PostList);
+export default connect(mapStateToProps, {pageChangeAction})(PostList);

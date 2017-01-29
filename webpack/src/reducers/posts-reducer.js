@@ -19,3 +19,12 @@ export function postDetailedInfoReducer(state = initialState.postDetailedInfo, a
             return state;
     }
 }
+
+export function postPageReducer(state = initialState.page, action){
+    switch (action.type){
+        case types.PAGE_CHANGE:
+            return action.page;
+        default:
+            return state;
+    }
+}

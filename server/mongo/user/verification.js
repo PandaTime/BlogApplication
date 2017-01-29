@@ -23,14 +23,20 @@ api.verifyUserName = function(req, res, next){
     var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies.token;
     if(token){
         jwt.verify(token, config.secretKey, function(err, decoded){
-            if(err){
-                req.body.username = config.defaultUserName;
-                next();
-            }
-            else{
+            if(err && !req.check){
+                res.status(401).end();
+            }else if(err && req.check){ //checking if user is authorized in initial load
+                res.status(200).json({authorized: false});
+            }else{
                 req.body.username = decoded._doc.username;
                 next();
             }
         });
+    }else{
+        if(req.check){
+            res.status(200).json({authorized: false});
+        }else{
+            res.status(401).end();
+        }
     }
 }

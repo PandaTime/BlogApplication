@@ -1,7 +1,9 @@
 'use strict';
 
-var app = require('express').Router();
-
+const app = require('express').Router(),
+      postsAPI = require('./mongo/posts/posts'),
+      usersAPI = require('./mongo/user/userHander');
+    
 module.exports = app;
 
 var posts = [{
@@ -19,23 +21,9 @@ var posts = [{
     "date" : 1353387915229
 }];
 
-app.get('/ajax/page/:id', (req, res)=>{
-    console.log('page id:', req.params.id);
-    res.send(JSON.stringify({data: posts}));
-});
-app.get('/ajax/post/:id', (req, res)=>{
-    let id = req.params.id,
-        post = false;
-    // gonna switch it to
-    posts.forEach((el)=>{
-        if(el.permalink == id){
-            post = el;
-        }
-    });
-    
-    if(post){
-        res.status(200).json(post);
-    }else{
-        res.status(404).json({err: 'not found'})
-    }
-});
+// verifying user(+adding username) after that adding new comment;
+app.post('/ajax/post/newcomment', usersAPI.verifyUserName, postsAPI.newComment);
+
+app.get('/ajax/page/:page', postsAPI.getPostsList);
+
+app.get('/ajax/post/:id', postsAPI.getPostDetails);

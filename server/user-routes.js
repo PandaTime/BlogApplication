@@ -15,3 +15,11 @@ app.post('/user/login', (req, res)=>{
 app.get('/user/logout', (req, res)=>{
     userHandler.logout(req, res);
 });
+app.get('/user/check',
+        (req, res, next)=>{
+            req.check = true;
+            next();
+        },
+        userHandler.verifyUserName,
+        (req, res)=>{res.status(200).json({authorized: true, username: req.body.username});
+})

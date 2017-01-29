@@ -27,9 +27,7 @@ api.login = function(req, res){
             var minute = 60 * 1000;
             api.autherID.push(token);
             res.status(200).cookie('token', token, { maxAge: 30 * minute });
-            res.json({
-                token
-            }).end();
+            res.json({token});
         });
     })(req, res);
 };

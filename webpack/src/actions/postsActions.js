@@ -8,7 +8,10 @@ function getPostsList(list){
 
 export function getListOfPosts(page){
     fetchPostsList(page).then((res)=>{
-        store.dispatch(getPostsList(res.data))
+        // saving our new posts;
+        store.dispatch(getPostsList(res.posts));
+        // saving total number of posts
+        //store.dispatch(setNumberOfPosts(res.totalResults))
     });
 }
 
@@ -20,4 +23,9 @@ export function getDetailedPostInfo(id){
     fetchPostDetails(id).then((res)=>{
         store.dispatch(getPostDetailed(res));
     })
+}
+
+//pages
+export function pageChangeAction(page){
+    return {type: types.PAGE_CHANGE, page};
 }

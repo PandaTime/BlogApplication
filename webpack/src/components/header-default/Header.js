@@ -2,28 +2,38 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import {loginUser, logoutUser} from '../../actions/authenticateActions';
+import {loginFormVisibilityAction} from '../../actions/visibilityActions'
+import {verificationCheck, signOutRequest} from '../../api/users';
 import {Navbar, NavItem, Nav} from 'react-bootstrap';
 import LoginForm from './LoginForm';
 
 // alternative: https://github.com/facebook/react/issues/579#issuecomment-60841923
+// Will change it(gonna get rid from bootstrap)
 class Header extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            showLoginForm: false
-        };
         this.loginExpand = this.loginExpand.bind(this);
         this.loginCollapse = this.loginCollapse.bind(this);
         this.logOut = this.logOut.bind(this);
     }
     loginExpand(){
-        this.setState({showLoginForm: true});
+        this.props.loginFormVisibilityAction(true);
     }
     loginCollapse(){
-        this.setState({showLoginForm: false});
+        this.props.loginFormVisibilityAction(false);
     }
     logOut(){
-        
+        signOutRequest().then(()=>{
+            this.props.logoutUser();
+        })
+    }
+    componentDidMount(){
+        // checking if we have valid token for autherization
+        verificationCheck().then((res)=>{
+            if(res.authorized){
+                this.props.loginUser(res.username);
+            }
+        })
     }
     render() {
         let userBar = this.props.authentication ? (
@@ -34,7 +44,7 @@ class Header extends React.Component{
             <Nav pullRight>
                 <NavItem eventKey={1} onClick={this.loginExpand}>
                     <div>Login</div>
-                    <LoginForm show={this.state.showLoginForm} hide={this.loginCollapse}/>
+                    <LoginForm show={this.props.showLoginForm} hide={this.loginCollapse}/>
                 </NavItem>
                 <NavItem eventKey={2} href="#">Register</NavItem>
             </Nav>
@@ -57,7 +67,8 @@ class Header extends React.Component{
 
 function mapStateToProps(state, ownProps){
     return {
-        authentication: state.authericationReducer
+        authentication: state.authericationReducer,
+        showLoginForm: state.loginFormVisibilityReducer
     };
 }
-export default connect(mapStateToProps, {loginUser, logoutUser})(Header);
+export default connect(mapStateToProps, {loginUser, logoutUser, loginFormVisibilityAction})(Header);

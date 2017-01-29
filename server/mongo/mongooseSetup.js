@@ -1,7 +1,6 @@
 'use strict';
 const config = require('./../config'),
-      mongoose = require('mongoose'),
-      colors = require('colors');
+      mongoose = require('mongoose');
 
 const api = {};
 module.exports = api;
@@ -16,3 +15,4 @@ api.initialize = function(){
 };
 // initialization of the models
 require('./schemes/users');
+require('./schemes/posts');

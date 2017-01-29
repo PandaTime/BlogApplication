@@ -22,3 +22,14 @@ export function signOutRequest(){
         }
     }).then((res)=>res.json());
 }
+
+export function verificationCheck(){
+    return fetch('/user/check',{
+        credentials: 'same-origin',
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).then((res)=>res.json());
+}

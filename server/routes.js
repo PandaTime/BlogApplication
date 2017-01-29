@@ -12,7 +12,7 @@ module.exports = function(app, config){
         console.info('Body:', req.body);
         next();
     });
-    app.get('/ajax*', ajaxRouter);
+    app.all('/ajax*', ajaxRouter);
 
     app.all('/user*', userRouter);
 };

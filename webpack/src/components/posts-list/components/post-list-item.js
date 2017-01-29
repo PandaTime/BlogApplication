@@ -9,24 +9,26 @@ class PostListItem extends React.Component {
         super(props);
     }
     getTime(date){
-        let diff = new Date() - date,
+        if(!date){
+            return 'Long time ago';
+        }
+        let diff = new Date() - new Date(date),
             res;
         if(diff > 604800000){
             res = `${new Date(date).getDate()} ${months[new Date(date).getMonth()]}`;
-        }else if((diff = parseInt(diff/(1000 * 60 * 60 * 24))) > 1){
-            res = diff + 'd';
-        }else if((diff = parseInt(diff * 24)) > 1){
-            res = diff + 'h';
+        }else if((diff = (diff/(1000 * 60 * 60 * 24))) > 1){
+            res = parseInt(diff) + 'd';
+        }else if((diff = (diff * 24)) > 1){
+            res = parseInt(diff) + 'h';
         }else{
-            res = diff * 60 + 'm'
+            res = parseInt(diff * 60) + 'm'
         }
         return res;
     }
     render(){
         let post = this.props.post,
             url = `/post/${post.permalink}`,
-            lastPost = this.getTime(post.date),
-            commentsAmount = post.comments.length;
+            lastPost = this.getTime(post.last_comment_date);
 
         return (
             <Link to={url} className="post-topic" >
@@ -39,7 +41,7 @@ class PostListItem extends React.Component {
                     </span>
                     <span className="post-replies">
                         <i className="post-replies-icon"></i>
-                        <span>{commentsAmount}</span>
+                        <span>{post.number_comments}</span>
                     </span>
                     <span className="post-author">{post.author}</span>
                     <span className="post-lastcomment">

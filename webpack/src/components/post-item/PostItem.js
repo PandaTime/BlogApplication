@@ -4,21 +4,27 @@ import {browserHistory} from 'react-router';
 import { connect } from 'react-redux';
 import CommentItem from './comment-item/CommentItem';
 import NewComment from './new-comment/NewComment';
-import {getDetailedPostInfo} from '../../actions/postsActions';
+import {getDetailedPostInfo, pageChangeAction} from '../../actions/postsActions';
 import defaultAvatar from '../../images/default_avatar.png';
 
 class PostItem extends React.Component {
     constructor(props){
         super(props);
+        this.url = this.props.params.id;
+        this.previousPage = this.previousPage.bind(this);
     }
     componentDidMount(){
         // changing background image
         document.getElementsByTagName('body')[0].className='forum-body-post';
         // getting that post information aka body, comments etc.
-        getDetailedPostInfo(this.props.params.id);
+        getDetailedPostInfo(this.url);
     }
     errorPage(){
         browserHistory.push('/404');
+    }
+    previousPage(){
+        // returning to topics list at previous page
+        browserHistory.push(`/page/${this.props.page}`);
     }
     render(){
         let post = this.props.postDetailedInfo;
@@ -51,10 +57,10 @@ class PostItem extends React.Component {
                     {comments}
                 </section>
                 <section className="post-new-comment">
-                    <NewComment />
+                    <NewComment url={this.url} refresh={getDetailedPostInfo.bind(this, this.url)}/>
                 </section>
                 <section className="post-return-nav">
-                    <button onClick={browserHistory.goBack} className="default-button post-return-button">
+                    <button onClick={this.previousPage} className="default-button post-return-button">
                         <i></i>
                         <span className="default-button-content">Return to Forum</span>
                     </button>
@@ -66,8 +72,9 @@ class PostItem extends React.Component {
 
 function mapStateToProps(state, ownProps){
     return {
-        postDetailedInfo: state.postDetailedInfoReducer
+        postDetailedInfo: state.postDetailedInfoReducer,
+        page: state.postPageReducer
     };
 }
 
-export default connect(mapStateToProps, {})(PostItem);
+export default connect(mapStateToProps, {pageChangeAction})(PostItem);
