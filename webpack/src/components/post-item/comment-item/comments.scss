@@ -1,0 +1,63 @@
+.comments{
+  color: $topic_text_color;
+  font-size: $font_size;
+  .comment-content{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,.3);
+    color: rgba(255,255,255,.7);
+    .comment-author{
+      width: 18.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      .comment-author-avatar{
+        img{
+          height: 80px;
+          width: 80px;
+        }
+      }
+      .comment-author-details{
+        margin-left: 1rem;
+        color: $comment_author_color;
+        .comment-author-postscount{
+          color: $topic_text_color;
+          font-size: .8125rem;
+          margin-top: 10px;
+        }
+      }
+    }
+    .comment-body{
+      width: calc(100% - 18.75rem);
+    }
+  }
+}
+
+@media only screen and (min-width: 641px){
+  .comment-content{
+    padding: 1.25rem 0;
+  }
+}
+
+
+.new-comment{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  .new-comment-image{
+    flex: 15%;
+  }
+  .new-comment-text{
+    flex: 85%;
+    input{
+      width: 100%;
+    }
+    &::after {
+      content: '';
+      width: 100%;
+    }
+  }
+  .new-comment-setting{
+    margin-left: auto;
+  }
+}

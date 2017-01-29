@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, IndexRoute, Redirect } from 'react-router';
 import App from './components/App';
 import PostList from './components/posts-list/PostList';
-import PostItem from './components/post-item/post-item';
+import PostItem from './components/post-item/PostItem';
 import ErrorRoute from './components/error-route/error-route';
 
 export default (

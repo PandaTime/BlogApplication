@@ -23,7 +23,10 @@ module.exports = {
             {test: /\.css$/, loader:  ExtractTextPlugin.extract({fallbackLoader: "style-loader", loader:'css-loader!sass-loader'})},
             {test: /\.html$/,loader: 'raw-loader'},
             {test: /\.(svg|woff|woff2)?(\?v=\d+.\d+.\d+)?$/, loader: 'url-loader?limit=8192&name=./[hash].[ext]'},
-            {test: /\.(eot|ttf)$/, loader: 'file-loader'}
+            {test: /\.(eot|ttf)$/, loader: 'file-loader'},
+            {test: /\.jpg$/, loader: 'url-loader?limit=10000&mimetype=image/jpg'},
+            {test: /\.jpeg$/, loader: 'url-loader?limit=10000&mimetype=image/jpeg'},
+            {test: /\.png$/, loader: 'url-loader?limit=10000&mimetype=image/png'}
         ]
     },
     plugins: [

@@ -1,4 +1,5 @@
 'use strict';
+const colors = require('colors');
 
 const express = require('express'),
       bodyParser = require('body-parser'),
@@ -12,6 +13,9 @@ const express = require('express'),
 
 const app = express();
 
+
+//initializating Mongo
+require('./server/mongo/mongooseSetup').initialize();
 
 // initializing our middleware
 app.use(bodyParser.json());
@@ -29,4 +33,4 @@ app.use(express.static(config.publicPath));
 app.use((req, res)=>{
     res.sendFile(path.join(config.publicPath, 'index.html'));
 });
-app.listen(config.port, ()=>{console.info(`Listeting port ${config.port}..`)});
+app.listen(config.port, ()=>{console.info(`Listeting port ${config.port}..`.green)});

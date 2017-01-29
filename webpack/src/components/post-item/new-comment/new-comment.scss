@@ -1,0 +1,70 @@
+@media only screen and (min-width: 961px){
+  .post-new-comment{
+    margin-top: 30px;
+  }
+}
+.post-new-comment{
+  width: 100%;
+  display: flex;
+  .new-comment{
+    padding-bottom: 2.5rem;
+    padding-top: 2.5rem;
+    width: 100%;
+    .new-comment-header{
+      color: $post_title_color;
+    }
+  }
+  .new-comment-content{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    color: rgba(255,255,255,.7);
+    .new-comment-author{
+      width: 18.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      .new-comment-author-avatar{
+        img{
+          height: 80px;
+          width: 80px;
+        }
+      }
+      .new-comment-author-details{
+        margin-left: 1rem;
+        color: $comment_author_color;
+        .comment-author-postscount{
+          color: $topic_text_color;
+          font-size: .8125rem;
+          margin-top: 10px;
+        }
+      }
+    }
+    .new-comment-form{
+      max-width: 43.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      font-size: 1.0625rem;
+      .new-comment-controls{
+        width: 100%;
+      }
+      .new-comment-textarea{
+        border: 1px solid #f8b700;
+        background-color: black;
+        color: white;
+        height: 12.5rem;
+        width: 100%;
+        padding: .6rem;
+        resize: vertical;
+      }
+      .new-comment-submitbutton{
+        background-color: #f7931e;
+        border-color: #f7931e;
+        color: #fff;
+        &:hover{
+          background-color: #f89e35;
+        }
+      }
+    }
+  }
+}

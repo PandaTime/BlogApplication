@@ -21,8 +21,8 @@ userModel.count({}, (err, numberOfUser)=>{
     }
 });
 function createDefaultUsers(){
-    let username = 'admin',
-        password = 'password';
+    let username = 'qwerty',
+        password = '123';
     userModel.register(
         new userModel({username, admin: true}),
         password,

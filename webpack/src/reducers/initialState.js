@@ -1,5 +1,5 @@
 export default {
-    loggedUser: false,
+    user: false,
     postsList: [],
     postDetailedInfo: {}
 };

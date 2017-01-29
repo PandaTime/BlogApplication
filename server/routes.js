@@ -2,14 +2,18 @@
 const express = require('express'),
       path = require('path');
 
-const ajaxRouter = require('./ajax-router');
+const ajaxRouter = require('./ajax-router'),
+      userRouter = require('./user-routes');
 
 
 module.exports = function(app, config){
-    app.get('*', (req, res, next)=>{
+    app.post('*', (req, res, next)=>{
         console.info('Url:', req.url);
+        console.info('Body:', req.body);
         next();
     });
     app.get('/ajax*', ajaxRouter);
+
+    app.all('/user*', userRouter);
 };
 

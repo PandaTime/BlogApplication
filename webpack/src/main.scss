@@ -1,7 +1,41 @@
+// variables
+$background_color: #321c29;
+$text_color: #337ab7;
+$topic_text_color: rgba(255,255,255,.7);
+$post_title_color: white;
+$comment_author_color: white;
+$font_size: 16px;
+
+// bootstrap
 @import '~bootstrap/dist/css/bootstrap.min.css';
-
+// post-list
+@import './components/posts-list/components/post-list-item';
+// post-item
+@import 'components/post-item/post-item';
 // comments
-@import 'components/post-item/components/comments';
+@import 'components/post-item/comment-item/comments';
+// new comments
+@import 'components/post-item/new-comment/new-comment';
 
+// default styles
+@import './default-styles/button';
+
+//-----------------
+html{
+  font-size: $font_size;
+}
+
+.forum-body-list, .forum-body-post{
+  background-color: $background_color;
+  background-position: top;
+  background-size: 100% auto;
+}
+.forum-body-list{
+  background-image: url('./images/bliz-overwatch-background.jpeg');
+  background-repeat: no-repeat;
+}
+.forum-body-post{
+  background-image: url('./images/background-overwatch-repeat.jpg');
+}
 // bootstrap fix
 // http://www.bootply.com/120951

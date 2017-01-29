@@ -1,8 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
-import PostItem from '../post-item/post-item';
+import PostListItem from './components/post-list-item';
 import {getListOfPosts} from '../../actions/postsActions';
 
 
@@ -11,13 +9,15 @@ class PostList extends React.Component {
         super(props);
     }
     componentDidMount(){
+        // changing background image
+        document.getElementsByTagName('body')[0].className='forum-body-list';
+        // getting posts for first page(argument in function - page number)
         getListOfPosts(1);
     }
     render() {
         var list = this.props.postList.map((el, index)=>{
-            var url = `/post/${el.permalink}`;
             return(
-                <Link to={url} key={index}>{el.title}</Link>
+                <PostListItem key={index} post={el}/>
             )
         });
         return (
