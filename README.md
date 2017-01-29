@@ -18,6 +18,7 @@ npm start
 * Authorization and authentication
 * Styling(80%%
 * Possibility to add new comments
+
 ## To-do List
 * Registration
 * Adding new Topics
