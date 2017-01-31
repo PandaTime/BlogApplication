@@ -22,7 +22,8 @@ $font_size: 16px;
 // default styles
 @import './default-styles/button';
 @import './default-styles/text';
-
+// loading-wheel styles
+@import 'components/loading-wheel/load-wheel';
 //-----------------
 html{
   font-size: $font_size;

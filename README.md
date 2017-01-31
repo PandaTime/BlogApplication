@@ -13,10 +13,14 @@ npm install
 npm run build
 npm start
 ```
+<b>Build modes:</b>
+* "dev:build" - development with hotreload (proxy: localhost:8080)
+* "prod:build" - minimized build for production
+* "analyze:build" - loading "webpack-bundle-analyzer" at localhost:8888 (for bundle components size);
 
 ## What's done
 * Authorization and authentication
-* Styling(80%%
+* Styling(80%)
 * Possibility to add new comments
 
 ## To-do List

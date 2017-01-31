@@ -19,8 +19,9 @@ function getPostDetailed(postInfo){
     return {type: types.AJAX_POST_DETAILS, postDetailedInfo: postInfo}
 }
 
+// returning promise for further turning off "loading wheel"
 export function getDetailedPostInfo(id){
-    fetchPostDetails(id).then((res)=>{
+    return fetchPostDetails(id).then((res)=>{
         store.dispatch(getPostDetailed(res));
     })
 }
