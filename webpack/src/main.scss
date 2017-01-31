@@ -16,6 +16,8 @@ $font_size: 16px;
 @import 'components/post-item/comment-item/comments';
 // new comments
 @import 'components/post-item/new-comment/new-comment';
+// register
+@import 'components/user-components/user-pages';
 
 // default styles
 @import './default-styles/button';

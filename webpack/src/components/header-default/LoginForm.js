@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import {loginUser} from '../../actions/authenticateActions';
 import {Modal, Button, FormControl, ControlLabel, HelpBlock, FormGroup} from 'react-bootstrap';
 import {signInRequest} from '../../api/users';
-
-
 class LoginForm extends React.Component{
     constructor(props){
         super(props);
