@@ -1,0 +1,29 @@
+.pagination-footer{
+  display: block;
+  text-align: center;
+  margin: 2rem 0;
+  .pagination-button{
+    min-width: 11.25rem;
+    align-items: center;
+    display: inline-flex;
+    height: 3.75rem;
+    text-align: center;
+    border-width: 1px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    span{
+      width: 100%;
+    }
+    &.pagination-page{
+      border: 0;
+      box-shadow: none;
+    }
+    &:hover{
+      text-decoration:  none;
+    }
+    &:focus{
+      text-decoration:  none;
+    }
+  }
+}

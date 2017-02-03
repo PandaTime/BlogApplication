@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import CommentItem from './comment-item/CommentItem';
 import NewComment from './new-comment/NewComment';
 import {getDetailedPostInfo, pageChangeAction} from '../../actions/postsActions';
-import defaultAvatar from '../../images/default_avatar.png';
+import defaultAvatar from '../images/default_avatar.png';
 import LoadingWheel from '../loading-wheel/LoadingWheel';
 
 class PostItem extends React.Component {

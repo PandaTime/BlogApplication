@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import defaultAvatar from '../../../images/default_avatar.png';
+import defaultAvatar from '../../images/default_avatar.png';
 import {fetchNewComment} from '../../../api/posts';
 import {loginFormVisibilityAction} from '../../../actions/visibilityActions';
 

@@ -24,6 +24,17 @@ class PostList extends React.Component {
         return (
             <div className="container">
                 {list}
+                <div className="pagination-footer">
+                    <a className="default-button pagination-button">
+                        <span className="default-button-content"><i></i>Previous</span>
+                    </a>
+                    <a className="default-button pagination-button pagination-page">
+                        <span>Current</span>
+                    </a>
+                    <a className="default-button pagination-button">
+                        <span className="default-button-content">Next<i></i></span>
+                    </a>
+                </div>
             </div>
         );
     }

@@ -10,6 +10,7 @@ $font_size: 16px;
 @import '~bootstrap/dist/css/bootstrap.min.css';
 // post-list
 @import './components/posts-list/components/post-list-item';
+@import './components/posts-list/components/pagination-footer';
 // post-item
 @import 'components/post-item/post-item';
 // comments
@@ -20,8 +21,8 @@ $font_size: 16px;
 @import 'components/user-components/user-pages';
 
 // default styles
-@import './default-styles/button';
-@import './default-styles/text';
+@import 'components/default-styles/button';
+@import 'components/default-styles/text';
 // loading-wheel styles
 @import 'components/loading-wheel/load-wheel';
 //-----------------
@@ -35,11 +36,11 @@ html{
   background-size: 100% auto;
 }
 .forum-body-list{
-  background-image: url('./images/bliz-overwatch-background.jpeg');
+  background-image: url('./components/images/bliz-overwatch-background.jpeg');
   background-repeat: no-repeat;
 }
 .forum-body-post{
-  background-image: url('./images/background-overwatch-repeat.jpg');
+  background-image: url('./components/images/background-overwatch-repeat.jpg');
 }
 // bootstrap fix
 // http://www.bootply.com/120951
