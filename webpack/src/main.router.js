@@ -10,7 +10,7 @@ export default (
     <Route path="/" component={App}>
         <IndexRoute component={PostList} />
         <Route path="/" component={PostList} />
-        <Route path="/page/:id" component={PostList} />
+        <Route path="/page/:page" component={PostList} />
         <Route path="/post/:id" component={PostItem} />
         <Route path="/register" component={Register} />
         <Route path="/404" component={ErrorRoute} />

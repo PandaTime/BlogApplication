@@ -12,8 +12,10 @@
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
     border-radius: 1px;
+    cursor: pointer;
     span{
       width: 100%;
+      text-transform: capitalize;
     }
     &.pagination-page{
       border: 0;
@@ -21,9 +23,22 @@
     }
     &:hover{
       text-decoration:  none;
+      background-color: #00a5e2;
+      color: white;
+    }
+    &.previous-page .next-page{
     }
     &:focus{
       text-decoration:  none;
+    }
+    &.current-page{
+      border-width: 0px;
+      box-shadow: none;
+      &:hover{
+        cursor: default;
+        background-color: inherit;
+        color: #337ab7;
+      }
     }
   }
 }

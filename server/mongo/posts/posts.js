@@ -12,12 +12,17 @@ const cache = {
 };
 
 // initializing cache
-(function(){
-    posts.find({}).count().exec((err,number)=>{
-        console.info(`Number of Topics:${number}`.blue);
-        cache.topicsNumber = number;
-    })
-})();
+posts.find({}).count().exec((err,number)=>{
+    console.info(`Number of Topics:${number}`.blue);
+    cache.topicsNumber = number;
+});
+function cb(){console.log('after done')}
+var x = function(cb){
+    return setTimeout(function(){
+        console.log('DONE');
+        cb();
+    }, 3000);
+};
 
 // served information
 const postsList = {

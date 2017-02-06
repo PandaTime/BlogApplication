@@ -7,7 +7,9 @@ function getPostsList(list){
 }
 
 export function getListOfPosts(page){
-    fetchPostsList(page).then((res)=>{
+    var page = parseInt(page);
+    store.dispatch(pageChangeAction(page));
+    return fetchPostsList(page).then((res)=>{
         // saving our new posts;
         store.dispatch(getPostsList(res.posts));
         // saving total number of posts
@@ -28,5 +30,6 @@ export function getDetailedPostInfo(id){
 
 //pages
 export function pageChangeAction(page){
+    console.log('act', page);
     return {type: types.PAGE_CHANGE, page};
 }

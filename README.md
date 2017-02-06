@@ -22,11 +22,11 @@ npm start
 * Authorization and authentication
 * Styling(80%)
 * Possibility to add new comments
+* Pagination
 
 ## To-do List
 * Registration
 * Adding new Topics
-* Pagination
 * Possibility to update personal comments
 * some other minor fixes
 

@@ -32,7 +32,7 @@ class PostItem extends React.Component {
     render(){
         let post = this.props.postDetailedInfo;
         if(!this.state.pageLoaded)
-            return <LoadingWheel />
+            return <LoadingWheel />;
         let comments = (post.comments || []).map((el, id)=>{
             return (
                 <CommentItem commentData={el} key={id}/>
