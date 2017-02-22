@@ -9,8 +9,7 @@ $font_size: 16px;
 // bootstrap
 @import '~bootstrap/dist/css/bootstrap.min.css';
 // post-list
-@import './components/posts-list/components/post-list-item';
-@import './components/posts-list/components/pagination-footer';
+@import './components/posts-list/components/posts-list';
 // post-item
 @import 'components/post-item/post-item';
 // comments

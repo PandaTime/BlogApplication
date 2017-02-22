@@ -1,8 +1,8 @@
 import * as types from './actionTypes';
 
-export function loginUser(user){
+export function loginUser(user) {
     return {type: types.AUTHENTICATION, user};
 }
-export function logoutUser(){
+export function logoutUser() {
     return {type: types.LOGOUT}
 }

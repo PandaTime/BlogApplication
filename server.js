@@ -2,13 +2,13 @@
 const colors = require('colors');
 
 const express = require('express'),
-      bodyParser = require('body-parser'),
-      cookieParser = require('cookie-parser'),
-      LocalStrategy = require('passport-local').Strategy,
-      passport = require('passport'),
-      User = require('./server/mongo/schemes/users'),
-      path = require('path'),
-      config = require('./server/config');
+    bodyParser = require('body-parser'),
+    cookieParser = require('cookie-parser'),
+    LocalStrategy = require('passport-local').Strategy,
+    passport = require('passport'),
+    User = require('./server/mongo/schemes/users'),
+    path = require('path'),
+    config = require('./server/config');
 
 
 const app = express();
@@ -34,4 +34,6 @@ app.use(express.static(config.publicPath));
 app.use((req, res)=>{
     res.sendFile(path.join(config.publicPath, 'index.html'));
 });
-app.listen(config.port, ()=>{console.info(`Listeting port ${config.port}..`.green)});
+app.listen(config.port, ()=>{
+    console.info(`Listeting port ${config.port}..`.green)
+});

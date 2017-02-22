@@ -1,11 +1,11 @@
 'use strict';
 const config = require('./../config'),
-      mongoose = require('mongoose');
+    mongoose = require('mongoose');
 
 const api = {};
 module.exports = api;
 
-api.initialize = function(){
+api.initialize = function() {
     mongoose.connect(config.db);
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'error..'.red));

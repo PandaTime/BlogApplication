@@ -14,9 +14,11 @@ npm run build
 npm start
 ```
 <b>Build modes:</b>
-* "dev:build" - development with hotreload (proxy: localhost:8080)
-* "prod:build" - minimized build for production
+* "dev:build" - development with hotreload (proxy: localhost:8080);
+* "prod:build" - minimized build for production;
 * "analyze:build" - loading "webpack-bundle-analyzer" at localhost:8888 (for bundle components size);
+* "ews --color --watch" - eslint(eslint, eslint-react);
+
 
 ## What's done
 * Authorization and authentication

@@ -5,37 +5,37 @@ import {fetchNewComment} from '../../../api/posts';
 import {loginFormVisibilityAction} from '../../../actions/visibilityActions';
 
 class NewComment extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.submitPost = this.submitPost.bind(this);
         this.handleTextAreaChange = this.handleTextAreaChange.bind(this);
         this.logIn = this.logIn.bind(this);
         this.state = {
-            newCommentValue: ''
+            newCommentValue: '',
         }
     }
-    submitPost(event){
+    submitPost(event) {
         event.preventDefault();
-        if(!this.state.newCommentValue){
+        if (!this.state.newCommentValue) {
             return;
         }
         let postData = {
             author: this.props.userName,
             body: this.state.newCommentValue,
-            post_link: this.props.url
+            post_link: this.props.url,
         };
         fetchNewComment(postData).then((res)=>{
-            if(res.success){
+            if (res.success) {
                 this.setState({newCommentValue: ''});
                 // refreshing post data
                 this.props.refresh();
             }
         });
     }
-    handleTextAreaChange(event){
+    handleTextAreaChange(event) {
         this.setState({newCommentValue: event.target.value});
     }
-    logIn(){
+    logIn() {
         this.props.loginFormVisibilityAction(true);
     }
     render() {
@@ -79,9 +79,9 @@ class NewComment extends React.Component {
     }
 }
 
-function mapStateToProps(state, ownProps){
+function mapStateToProps(state, ownProps) {
     return {
-        userName: state.authericationReducer
+        userName: state.authericationReducer,
     };
 }
 

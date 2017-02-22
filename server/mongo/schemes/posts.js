@@ -10,11 +10,11 @@ module.exports = (function() {
         comments: [{
             body: String,
             author: String,
-            date: Date
+            date: Date,
         }],
         number_comments: {type: Number, default: 0},
         last_comment_date: Date,
-        date: Date
+        date: Date,
     });
 
     const collection = 'posts'; // DB collection name

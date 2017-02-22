@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import defaultAvatar from '../../images/default_avatar.png';
 
 class CommentItem extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
     }
     render() {
@@ -25,7 +25,7 @@ class CommentItem extends React.Component {
     }
 }
 
-function mapStateToProps(state, ownProps){
+function mapStateToProps(state, ownProps) {
     return {
         showData: state.changeShownReducer,
         

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 
 class ErrorRoute extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
     render() {
@@ -18,7 +18,7 @@ class ErrorRoute extends React.Component {
     }
 }
 
-function mapStateToProps(state, ownProps){
+function mapStateToProps(state, ownProps) {
     return {
 
     };

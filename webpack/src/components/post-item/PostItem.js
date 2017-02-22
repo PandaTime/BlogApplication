@@ -9,15 +9,15 @@ import defaultAvatar from '../images/default_avatar.png';
 import LoadingWheel from '../loading-wheel/LoadingWheel';
 
 class PostItem extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.url = this.props.params.id;
         this.previousPage = this.previousPage.bind(this);
         this.state = {
-            pageLoaded: false
+            pageLoaded: false,
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         // changing background image
         document.getElementsByTagName('body')[0].className='forum-body-post';
         // getting that post information aka body, comments etc.
@@ -25,13 +25,13 @@ class PostItem extends React.Component {
             this.setState({pageLoaded: true});
         });
     }
-    previousPage(){
+    previousPage() {
         // returning to topics list at previous page
         browserHistory.push(`/page/${this.props.page}`);
     }
-    render(){
+    render() {
         let post = this.props.postDetailedInfo;
-        if(!this.state.pageLoaded)
+        if (!this.state.pageLoaded)
             return <LoadingWheel />;
         let comments = (post.comments || []).map((el, id)=>{
             return (
@@ -66,7 +66,7 @@ class PostItem extends React.Component {
                 </section>
                 <section className="post-return-nav">
                     <button onClick={this.previousPage} className="default-button post-return-button">
-                        <i></i>
+                        <i />
                         <span className="default-button-content">Return to Forum</span>
                     </button>
                 </section>
@@ -75,10 +75,10 @@ class PostItem extends React.Component {
     }
 }
 
-function mapStateToProps(state, ownProps){
+function mapStateToProps(state, ownProps) {
     return {
         postDetailedInfo: state.postDetailedInfoReducer,
-        page: state.postPageReducer
+        page: state.postPageReducer,
     };
 }
 

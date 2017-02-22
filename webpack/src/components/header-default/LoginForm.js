@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import {loginUser} from '../../actions/authenticateActions';
 import {Modal, Button, FormControl, ControlLabel, HelpBlock, FormGroup} from 'react-bootstrap';
 import {signInRequest} from '../../api/users';
-class LoginForm extends React.Component{
-    constructor(props){
+class LoginForm extends React.Component {
+    constructor(props) {
         super(props);
         this.signIn = this.signIn.bind(this);
         this.loginChange = this.loginChange.bind(this);
@@ -15,48 +15,48 @@ class LoginForm extends React.Component{
             loginValue: '',
             pwd: '',
             ajax_call: false,
-            loginError: false
+            loginError: false,
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         document.addEventListener('keydown', this.handleEscKey, false);
     }
-    signIn(){
+    signIn() {
         this.setState({ajax_call: true});
         signInRequest(this.state.loginValue,this.state.pwd).then((res)=>{
-            if(res.err){
+            if (res.err) {
                 this.setState({
                     pwd: '',
                     ajax_call: false,
-                    loginError: 'Login or password is incorrect!'
+                    loginError: 'Login or password is incorrect!',
                 });
-            }else{
+            } else {
                 this.setState({
                     pwd: '',
                     ajax_call: false,
-                    loginError: false
+                    loginError: false,
                 });
                 this.props.loginUser(this.state.loginValue);
                 this.onHide();
             }
         })
     }
-    loginChange(e){
+    loginChange(e) {
         this.setState({ loginValue: e.target.value });
     }
-    passwordChange(e){
+    passwordChange(e) {
         this.setState({ pwd: e.target.value });
     }
-    onHide(){
+    onHide() {
         this.props.hide();
     }
-    handleEscKey(event){
-        if(!this.props.show){
+    handleEscKey(event) {
+        if (!this.props.show) {
             return;
         }
-        if(event.keyCode == 27){
+        if (event.keyCode == 27) {
             this.onHide();
-        }else if(event.keyCode == 13){
+        } else if (event.keyCode == 13) {
             this.signIn();
         }
     }
@@ -67,8 +67,8 @@ class LoginForm extends React.Component{
         delete rest.hide;
         return (
             <Modal {...rest} bsSize="large" aria-labelledby="contained-modal-title-lg">
-                <Modal.Header closeButton onHide={this.onHide}>
-                    <Modal.Title id="contained-modal-title-lg"></Modal.Title>
+                <Modal.Header closeButton={true} onHide={this.onHide}>
+                    <Modal.Title id="contained-modal-title-lg" />
                 </Modal.Header>
                 <Modal.Body>
                     <form>
@@ -101,11 +101,11 @@ class LoginForm extends React.Component{
             </Modal>
         );
     }
-};
+}
 
-function mapStateToProps(state, ownProps){
+function mapStateToProps(state, ownProps) {
     return {
-        authentication: state.authericationReducer
+        authentication: state.authericationReducer,
     };
 }
 export default connect(mapStateToProps, {loginUser})(LoginForm);

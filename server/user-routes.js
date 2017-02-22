@@ -21,5 +21,6 @@ app.get('/user/check',
             next();
         },
         userHandler.verifyUserName,
-        (req, res)=>{res.status(200).json({authorized: true, username: req.body.username});
-})
+        (req, res)=>{
+            res.status(200).json({authorized: true, username: req.body.username});
+        })

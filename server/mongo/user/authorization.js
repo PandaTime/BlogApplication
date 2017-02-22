@@ -7,20 +7,20 @@ module.exports = api;
 
 api.autherID = [];
 
-api.login = function(req, res){
-    passport.authenticate('local', function(err, user, info){
-        if(err){
+api.login = function(req, res) {
+    passport.authenticate('local', function(err, user, info) {
+        if (err) {
             return res.status(520).json({err});
         }
-        if(!user){
+        if (!user) {
             return res.status(401).json({
-                err: info
+                err: info,
             });
         }
-        req.logIn(user, function(err){
-            if(err){
+        req.logIn(user, function(err) {
+            if (err) {
                 return res.status(500).json({
-                    err: 'Could not log in a user'
+                    err: 'Could not log in a user',
                 });
             }
             var token = Verify.getToken(user);
@@ -32,7 +32,7 @@ api.login = function(req, res){
     })(req, res);
 };
 
-api.logout = function(req, res){
+api.logout = function(req, res) {
     req.logout();
     res.clearCookie('token');
     res.status(200).redirect('/');
@@ -41,7 +41,7 @@ api.logout = function(req, res){
 api.register = function(req, res) {
     User.register(new User({ username : req.body.username }), req.body.password, function(err, user) {
         if (err) {
-            return res.status(403).json({err: "Sorry. That username already exists. Try again."});
+            return res.status(403).json({err: 'Sorry. That username already exists. Try again.'});
         }
         api.login(req, res);
     });

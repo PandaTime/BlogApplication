@@ -2,8 +2,8 @@ import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
 
-export function postListReducer(state = initialState.postsList, action){
-    switch (action.type){
+export function postListReducer(state = initialState.postsList, action) {
+    switch (action.type) {
         case types.AJAX_POSTS_LIST:
             return action.postsList;
         default:
@@ -11,8 +11,8 @@ export function postListReducer(state = initialState.postsList, action){
     }
 }
 
-export function postDetailedInfoReducer(state = initialState.postDetailedInfo, action){
-    switch (action.type){
+export function postDetailedInfoReducer(state = initialState.postDetailedInfo, action) {
+    switch (action.type) {
         case types.AJAX_POST_DETAILS:
             return action.postDetailedInfo;
         default:
@@ -20,8 +20,8 @@ export function postDetailedInfoReducer(state = initialState.postDetailedInfo, a
     }
 }
 
-export function postPageReducer(state = initialState.page, action){
-    switch (action.type){
+export function postPageReducer(state = initialState.page, action) {
+    switch (action.type) {
         case types.PAGE_CHANGE:
             return action.page;
         default:

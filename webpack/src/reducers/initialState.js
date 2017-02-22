@@ -3,5 +3,5 @@ export default {
     postsList: [],
     page: 1,
     postDetailedInfo: {},
-    loginShow: false
+    loginShow: false,
 };

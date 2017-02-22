@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
     postListReducer,
     postDetailedInfoReducer,
     postPageReducer,
-    loginFormVisibilityReducer
+    loginFormVisibilityReducer,
 });
 
 export default rootReducer;
