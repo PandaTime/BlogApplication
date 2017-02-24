@@ -8,7 +8,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin'),
 // loading server
 //require('./server');
 
-module.exports = function(env){
+module.exports = function(env = {}){
     let pluginsList = [
         new HtmlWebpackPlugin({
             filename: 'index.html',
