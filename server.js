@@ -12,7 +12,7 @@ const express = require('express'),
 
 
 const app = express();
-
+// check it is
 
 //initializating Mongo
 require('./server/mongo/mongooseSetup').initialize();
@@ -34,6 +34,6 @@ app.use(express.static(config.publicPath));
 app.use((req, res)=>{
     res.sendFile(path.join(config.publicPath, 'index.html'));
 });
-app.listen(config.port, ()=>{
+app.listen(config.port, "0.0.0.0", ()=>{
     console.info(`Listeting port ${config.port}..`.green)
 });
